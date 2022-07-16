@@ -60,16 +60,19 @@ end
 
 
 
+# def big_shoe_rebounds
+#   size = 0
+#   return_player = {}
+
+#   all_players.each { |player| 
+#    if player[:shoe] > size
+#     size = player[:shoe]
+#     return_player = player
+#    end
+#  }
+#  return_player[:rebounds]
+# end
+
 def big_shoe_rebounds
-  size = 0
-  return_player = {}
-
-  all_players.each { |player| 
-   if player[:shoe] > size
-    size = player[:shoe]
-    return_player = player
-   end
- }
- return_player[:rebounds]
+all_players.max {|a,b| a[:shoe] <=> b[:shoe]}[:rebounds]
 end
-
