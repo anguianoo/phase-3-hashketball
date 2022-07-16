@@ -86,8 +86,10 @@ def player_with_longest_name
 end
 
 def winning_team
-  home_points = game_hash[:home][:players].sum {|player| player[:points]}
-  away_points = game_hash[:away][:players].sum {|player| player[:points]}
-  [home_points, away_points].max
+  # home_points = game_hash[:home][:players].sum {|player| player[:points]}
+  # away_points = game_hash[:away][:players].sum {|player| player[:points]}
+  # [home_points, away_points].max
+  winner = {:home => game_hash[:home][:players].sum {|player| player[:points]}, :away => game_hash[:away][:players].sum {|player| player[:points]}}
+  game_hash[winner.max[0]][:team_name]
 end
 puts winning_team
