@@ -76,3 +76,18 @@ end
 def big_shoe_rebounds
 all_players.max {|a,b| a[:shoe] <=> b[:shoe]}[:rebounds]
 end
+
+def most_points_scored
+  all_players.max { |a,b| a[:points] <=> b[:points]}
+end
+
+def player_with_longest_name
+  all_players.max { |a,b| a[:player_name].length <=> b[:player_name].length}
+end
+
+def winning_team
+  home_points = game_hash[:home][:players].sum {|player| player[:points]}
+  away_points = game_hash[:away][:players].sum {|player| player[:points]}
+  [home_points, away_points].max
+end
+puts winning_team
